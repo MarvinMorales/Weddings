@@ -1,0 +1,228 @@
+@charset "utf-8";
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+.body-new-project {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(238, 238, 238);
+}
+
+.main-box {
+    width: 70%;
+    height: 80%;
+    background-color: rgb(253, 253, 253);
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.048);
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    padding: 60px;
+    display: flex;
+    background-color: rgb(250, 250, 250);
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px dotted rgb(230, 230, 230);
+    margin-bottom: 10px;
+    background-image: url('https://pro2-bar-s3-cdn-cf.myportfolio.com/30829e4529226b2ee8bbbc6d7fc84bed/be407b54-a5df-4450-b350-014ad98ae012_rw_3840.jpg?h=f4380679b0db0aea81df758924fe56c6');
+    background-size: cover;
+    background-position-y: -80px;
+}
+
+.sub-box {
+    width: 100%;
+    padding: 10px 60px;
+}
+
+
+.titles {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: rgb(201, 201, 201);
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+}
+
+.container-header div {
+    margin-right: 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 13px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.container-header div i {
+    margin-right: 10px;
+}
+
+.add-proj {
+    border: none;
+    padding: 12px 20px;
+    display: flex;
+    font-size: 13px;
+    border-radius: 5px;
+    color: white;
+    justify-content: space-between;
+    border: 1px solid rgb(0, 105, 190);
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(100, 193, 255), rgb(0, 119, 255));
+}
+
+.add-proj p {
+    margin-left: 10px;
+}
+
+.rows {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid rgb(236, 236, 236);
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.rows-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+
+
+.rows:hover {
+    background-color: rgb(245, 245, 245);
+    cursor: default;
+}
+
+.col {
+    font-weight: bold;
+    color: rgb(133, 133, 133) !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(241, 241, 241));
+}
+
+.border-menu {
+    border-right: 1px solid rgb(219, 219, 219);
+}
+
+.border-menu:last-child {
+    border-right: 0px solid rgb(139, 139, 139);
+}
+
+.check-box-title {
+    border-right: 1px solid rgb(219, 219, 219);
+    background: linear-gradient(to bottom, rgb(247, 247, 247), rgb(231, 231, 231)) !important;
+}
+
+.check-box-title i {
+    color: rgb(128, 128, 128);
+}
+
+.check-box {
+    width: 40px;
+    height: 40px;
+    background: rgba(128, 255, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-1 {flex: .7 !important;}
+.b-2 {flex: .7 !important;}
+.b-3 {flex: .7 !important;}
+.b-4 {flex: .7 !important;}
+.b-5 {flex: .5 !important;}
+.b-6 {flex: .5 !important;}
+
+.col-1 {
+    flex: .68;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+}
+
+.col-2 {
+    flex: .68;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+
+}
+.col-3 {
+    flex: .68;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+}
+
+.col-4 {
+    flex: .66;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+}
+
+.col-5 {
+    flex: .45;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+}
+.col-6 {
+    flex: .45;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(153, 153, 153);
+    padding: 0 10px;
+}
+
+select {
+    width: 80%;
+    height: 80%;
+    border: none;
+    font-size: 13px;
+    margin-right: 10px;
+    padding-right: 10px;
+    color: rgb(153, 153, 153);
+    background-color: transparent;
+}
+
+select:focus {
+    outline: none !important;
+    border-radius: 4px;
+    border: 1px solid rgb(95, 95, 95);
+}

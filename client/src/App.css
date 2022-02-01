@@ -1,0 +1,274 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poiret One', cursive;
+}
+
+.sectionVideo {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(58, 58, 58);
+  display: flex;
+  z-index: -10;
+}
+
+.video-back {
+  flex: 1;
+  object-fit: cover;
+}
+
+.data-over-video {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header-number1 {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  padding: 0 60px;
+}
+
+.logo-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+.logo-container {
+  display: flex;
+  margin-top: 35px;
+}
+
+#learn-more:hover {
+  cursor: pointer;
+}
+
+.logoTitle {
+  font-size: 20px;
+  color: white;
+}
+
+.play-all {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  background-color: rgba(190, 125, 51, 0.469);
+  padding: 12px 20px;
+  border-radius: 25px;
+  margin-top: 80px;
+}
+
+.play-all i {
+  transition: .3s;
+}
+
+.play-all:hover {
+  cursor: pointer;
+}
+
+.play-all:hover i {
+  transform: scale(1.2);
+  transition: .3s;
+}
+
+.play-all p {
+  margin-left: 10px;
+}
+
+.logoDesc {
+  font-size: 15px;
+  color: rgb(218, 130, 96);
+}
+
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(74, 74, 74);
+  transition: .3s;
+}
+
+.logo-circle img {
+  width: 150%;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+}
+
+.icons-container div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.082);
+  margin-left: 10px;
+  transition: .2s;
+}
+
+.icons-container div i {
+  color: white;
+  font-size: 16px;
+}
+
+.icons-container div:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.469);
+  transition: .2s;
+}
+
+.row-name {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-name h1 {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  font-family: 'Poiret One', cursive;
+}
+
+.trailer {
+  font-size: 35px;
+  color: white;
+}
+
+.video-cards {
+  width: 50%;
+  height: 300px;
+  position: fixed;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  width: 400px;
+  height: 280px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.466);
+  margin-right: 40px;
+  margin-left: 40px;
+  transition: .4s;
+}
+
+.card-container:hover {
+  cursor: pointer;
+  transform: translateY(-15px);
+  transition: .4s;
+}
+
+.card-container:hover .i-div {
+  transition: .4s;
+  opacity: 1;
+  transform-origin: center;
+}
+
+.card-container:hover i:nth-child(2) {
+  transform: translateX(10px);
+  transition: .5s;
+  opacity: .5;
+}
+
+.poster-container {
+  flex: 1;
+  background-color: rgb(224, 224, 224);
+  position: relative;
+}
+
+.i-div {
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  z-index: 10;
+  top: calc(50% - 40px);
+  left: 50%;
+  transition: .2s;
+  opacity: 0;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.footer-container {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+}
+
+.footer-container div {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-wedding {
+  font-size: 18px !important;
+  color: rgb(155, 126, 63) !important;
+  font-weight: bold !important;
+}
+
+.footer-container p {
+  margin-right: 10px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.footer-container i {
+  color: rgb(3, 3, 1);
+  font-size: 12px;
+  transform: translateX(0);
+  transition: .5s;
+}
+
+.poster {
+  width: 100%;
+}
+
