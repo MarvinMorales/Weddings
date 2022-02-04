@@ -8,15 +8,21 @@ export const Login = () => {
     const [password, setPassword] = React.useState(null);
     const navigate = useNavigate();
 
+    React.useEffect(() => {
+        const storage_data = JSON.parse(window.localStorage.getItem('credentials'));
+        if (storage_data && storage_data.hasOwnProperty('token')) navigate('/dashboard')
+    }, []);
+
     const validateCredentials = () => {
         if (user !== null && password !== null) {
             axios.post(`${configuration['host']}/auth`, {
                 email: user, password: password
             }).then(response => {
                 if (response.data['success']) {
-                    const credentials_weddings = {token: response.headers['authorization'], user_ID: response.data.user_ID}
+                    const credentials_weddings = {token: response.headers['authorization'], 
+                    user_ID: response.data.user_ID, user_name: response.data.user_name}
                     window.localStorage.setItem('credentials', JSON.stringify(credentials_weddings));
-                    navigate('/uploader');
+                    navigate('/dashboard');
                 } else alert("Las credenciales son incorrectas!");
             }).catch(err => console.error(err));
         }

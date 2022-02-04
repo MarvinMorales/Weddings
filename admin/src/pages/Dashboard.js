@@ -2,6 +2,7 @@ import React from 'react';
 import "./css/NewProject.css";
 import { CreateProject } from "./CreateProject";
 import { configuration } from '../config';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export const Dashboard = () => {
@@ -9,16 +10,18 @@ export const Dashboard = () => {
     const [selectedProjects, setSelectedProjects] = React.useState([]);
     const [createProject, setCreateProject] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
+    const navigate = useNavigate();
     
     React.useEffect(() => {
         const storage_data = JSON.parse(window.localStorage.getItem('credentials'));
-        axios.get(`${configuration['host']}/${storage_data['user_ID']}/retrieve/projects`, 
-        {"Authorization": storage_data['token']})
-        .then(response => {
-            if (response.data['success'])
-                setProjects(response.data['root_projects'])
-                console.log(projects)
-        }).catch(err => console.error(err))
+        if (storage_data && storage_data.hasOwnProperty('token')) {
+            axios.get(`${configuration['host']}/${storage_data['user_ID']}/retrieve/projects`, 
+            {headers: { "Authorization": storage_data['token']} })
+            .then(response => {
+                if (response.data['success']) setProjects(response.data['root_projects']);
+                else if (response.status === 401) navigate("/");
+            }).catch(err => console.error(err))
+        } else navigate('/')
     }, []);
 
     const Rating = (likes_arr) => {
@@ -66,9 +69,11 @@ export const Dashboard = () => {
     const deleteProjects = () => {
         const storage_data = JSON.parse(window.localStorage.getItem('credentials'));
         let project_array = JSON.stringify(selectedProjects);
-        axios.get(`${configuration['host']}/${storage_data['user_ID']}/delete/projects/${project_array}`)
-        .then(response => setProjects(response.data['root_projects']))
-        .catch(err => console.error(err))
+        axios.get(`${configuration['host']}/${storage_data['user_ID']}/delete/projects/${project_array}`, {
+            headers: { "Content-Type": "application/json", "Authorization": storage_data['token'] }
+        }).then(response => {
+            setProjects(response.data['root_projects']); setSelectedProjects([]);
+        }).catch(err => console.error(err))
     }
 
     const rows = () => {
@@ -105,7 +110,7 @@ export const Dashboard = () => {
                     <header>
                         <div>
                             <p className='titles'>Dashboard de proyectos</p>
-                            <p className='subtitle'>Gabriel loor (admin)</p>
+                            <p className='subtitle'>{ JSON.parse(window.localStorage.getItem('credentials'))['user_name'] } (admin)</p>
                         </div>
                         <div className='container-header'>
                             <button className='add-proj' onClick={ () => deleteProjects() } style={{marginRight:10}}>
@@ -137,7 +142,7 @@ export const Dashboard = () => {
                                     </div>
                                 </div>
                             ); else return (
-                                <p>Hola</p>
+                                <CreateProject/>
                             )
                         })()
                     }
